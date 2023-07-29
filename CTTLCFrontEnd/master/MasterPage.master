@@ -1,0 +1,264 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="master_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CTTLC-產品資訊</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../css/product.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="headTop">
+        <ul>
+            <li>
+                <a href="#">網路商店</a>
+            </li>
+            <li>
+                <a href="#">常見問答</a>
+            </li>
+            <li>
+                <a href="#">人力需求</a>
+            </li>
+            <li>
+                <a href="#">聯絡我們</a>
+            </li>
+            <li>
+                <a href="#">網站地圖</a>
+            </li>
+            <li>
+                <a href="#">簡體版</a>
+            </li>
+            <li>
+                <a href="#">English</a>
+            </li>
+        </ul>
+    </div>
+    <header>
+        <nav>
+            <div class="logoDiv">
+                <img src="../img/CTTLC_logo.svg" alt="CTTLC">
+            </div>
+            <div class="navDiv">
+                <form class="searchBar">
+                    <label for="search">產品搜尋</label>
+                    <input type="text" id="search" name="search">
+                    <input type="submit" value="搜尋" id="searchSub">
+                </form>
+                <div class="tabBar">
+                    <ul>
+                        <li>
+                            <a href="/About.aspx" id="About">關於佳泰</a>
+                        </li>
+                        <li>
+                            <%--<a href="product.html#PowerMOSFETs" id="product">產品資訊</a>--%>
+                            <a href="/Products.aspx" id="Products">產品資訊</a>
+                        </li>
+                        <li>
+                            <a href="/AppliedProduct.aspx" id="AppliedProduct">產品應用</a>
+                        </li>
+                        <li>
+                            <a href="#">銷售據點</a>
+                        </li>
+                        <li>
+                            <a href="/Investment">投資人專區</a>
+                        </li>
+                        <li>
+                            <a href="/Agenda">發展策略</a>
+                        </li>
+                        <li>
+                            <a href="#">公司治理</a>
+                        </li>
+                        <li>
+                            <a href="#">企業社會責任</a>
+                        </li>
+                        <li>
+                            <a href="#">利害關係人專區</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <script>
+        let pageName = window.location.pathname.split('/').pop().split('.')[0];
+        $('#' + pageName).css({ 'color': '#1f2a50' }).parents('li').css({ 'background-color': '#efefef', 'color': '#1f2a50' });
+    </script>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <footer>
+        <div class="footer">
+            <div class="wbeMap">
+                <ul>
+                    <li>
+                        <a href="/About.aspx">關於佳泰</a>
+                    </li>
+                    <li>
+                        <a href="/Intro.aspx">公司簡介</a>
+                    </li>
+                    <li>
+                        <a href="#">公司沿革</a>
+                    </li>
+                    <li>
+                        <a href="#">組織架構</a>
+                    </li>
+                    <li>
+                        <a href="#">營業概況</a>
+                    </li>
+                    <li>
+                        <a href="#">RoHS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">產品資訊</a>
+                    </li>
+                    <li>
+                        <a href="#">Power MOSFETs</a>
+                    </li>
+                    <li>
+                        <a href="#">SUPER JUNCTION</a>
+                    </li>
+                    <li>
+                        <a href="#">IGBTs</a>
+                    </li>
+                    <li>
+                        <a href="#">POWER ICs</a>
+                    </li>
+                    <li>
+                        <a href="#">產品消息</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">產品應用</a>
+                    </li>
+                    <li>
+                        <a href="#">Ｎetworking</a>
+                    </li>
+                    <li>
+                        <a href="#">LED</a>
+                    </li>
+                    <li>
+                        <a href="#">LCD/LED TV</a>
+                    </li>
+                    <li>
+                        <a href="#">SPS</a>
+                    </li>
+                    <li>
+                        <a href="#">MB</a>
+                    </li>
+                    <li>
+                        <a href="#">Notebook</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">銷售據點</a>
+                    </li>
+                    <li>
+                        <a href="#">歐洲</a>
+                    </li>
+                    <li>
+                        <a href="#">亞洲</a>
+                    </li>
+                    <li>
+                        <a href="#">非洲</a>
+                    </li>
+                    <li>
+                        <a href="#">澳洲</a>
+                    </li>
+                    <li>
+                        <a href="#">北美洲</a>
+                    </li>
+                    <li>
+                        <a href="#">中南美洲</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">投資人專區</a>
+                    </li>
+                    <li>
+                        <a href="#">財務業務資訊</a>
+                    </li>
+                    <li>
+                        <a href="#">股東會資訊</a>
+                    </li>
+                    <li>
+                        <a href="#">股利及股價資訊</a>
+                    </li>
+                    <li>
+                        <a href="#">股務作業</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">公司治理</a>
+                    </li>
+                    <li>
+                        <a href="#">公司治理架構</a>
+                    </li>
+                    <li>
+                        <a href="#">董事會</a>
+                    </li>
+                    <li>
+                        <a href="#">委員會</a>
+                    </li>
+                    <li>
+                        <a href="#">組織規程</a>
+                    </li>
+                    <li>
+                        <a href="#">內部稽核</a>
+                    </li>
+                    <li>
+                        <a href="#">相關規則及資訊</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">企業社會責任</a>
+                    </li>
+                    <li>
+                        <a href="#">企業社會責任使命</a>
+                    </li>
+                    <li>
+                        <a href="#">ＣＳＲ政策及推動計劃</a>
+                    </li>
+                    <li>
+                        <a href="#">ＣＳＲ報吿書</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">利害關係人專區</a>
+                    </li>
+                    <li>
+                        <a href="#">聯絡資訊</a>
+                    </li>
+                    <li>
+                        <a href="#">溝通管道</a>
+                    </li>
+                    <li>
+                        <a href="#">常見問答集</a>
+                    </li>
+                </ul>
+            </div>
+            <p>Copyright © 2023 CTTLC. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    
+    <script src="../js/common.js"></script>
+    <script src="../js/prodData.js"></script>
+</body>
+</html>
