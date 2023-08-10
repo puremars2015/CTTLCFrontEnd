@@ -40,7 +40,7 @@
     <header>
         <nav>
             <div class="logoDiv">
-                <img src="../img/CTTLC_logo.svg" alt="CTTLC">
+                <img src="img/CTTLC_logo.svg" alt="CTTLC">
             </div>
             <div class="navDiv">
                 <form class="searchBar">
@@ -55,19 +55,19 @@
                         </li>
                         <li>
                             <%--<a href="product.html#PowerMOSFETs" id="product">產品資訊</a>--%>
-                            <a href="/Products.aspx" id="Products">產品資訊</a>
+                            <a href="./Products" id="Products">產品資訊</a>
                         </li>
                         <li>
-                            <a href="/AppliedProduct.aspx" id="AppliedProduct">產品應用</a>
+                            <a href="./AppliedProduct.aspx" id="AppliedProduct">產品應用</a>
                         </li>
                         <li>
                             <a href="#">銷售據點</a>
                         </li>
                         <li>
-                            <a href="/Investment">投資人專區</a>
+                            <a href="./Investment">投資人專區</a>
                         </li>
                         <li>
-                            <a href="/Agenda">發展策略</a>
+                            <a href="./Agenda">發展策略</a>
                         </li>
                         <li>
                             <a href="#">公司治理</a>
@@ -258,7 +258,7 @@
     </footer>
 
     
-    <script src="../js/common.js"></script>
-    <script src="../js/prodData.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/prodData.js"></script>
 </body>
 </html>

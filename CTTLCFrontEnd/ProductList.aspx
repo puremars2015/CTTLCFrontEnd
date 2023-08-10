@@ -1,35 +1,45 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/MasterPage.master" AutoEventWireup="true" CodeFile="Products.aspx.cs" Inherits="Products" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/master/MasterPage.master"  AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" Inherits="CTTLCFrontEnd.ProductList" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
-
     <main>
         <div class="breadCrumbs"></div>
         <div class="content">
             <div class="searchOptions">
                 <div>
                     <p>Package：</p>
+                    <select name="options" onchange="OptionSelectChanged(0)"></select>
                     <%--<select name="prodPackage" id="prodPackage"></select>--%>
-                    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                    <%--<asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>--%>
                 </div>
                 <div>
                     <p>Configuration：</p>
-                    <select name="prodConfiguration" id="prodConfiguration"></select>
+                    <select name="options" onchange="OptionSelectChanged(1)"></select>
+                    <%--<select name="prodConfiguration" id="prodConfiguration"></select>--%>
+                    <%--<asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged"></asp:DropDownList>--%>
                 </div>
-                <div>
-                    <p>Type：</p>
-                    <select name="prodType" id="prodType"></select>
-                </div>
-                <div>
-                    <p>VDS (V)：</p>
-                    <select name="prodVDS" id="prodVDS"></select>
-                </div>
+                <%--<div>--%>
+                    <%--<p>Type：</p>--%>
+                    <%--<select name="prodType" id="prodType"></select>--%>
+                    <%--<asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged"></asp:DropDownList>--%>
+                <%--</div>--%>
+                <%--<div>--%>
+                    <%--<p>VDS (V)：</p>--%>
+                    <%--<select name="prodVDS" id="prodVDS"></select>--%>
+                    <%--<asp:DropDownList ID="DropDownList4" runat="server"></asp:DropDownList>--%>
+                <%--</div>--%>
             </div>
             <div class="table">
-                <table width="99%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#DDDDDD" id="table1" class="PDTB">
-
+                <table width="99%" border="1" align="center" cellpadding="0" cellspacing="0"
+                    bordercolor="#DDDDDD" id="table1" class="PDTB">
+                    <thead>
+                        <tr id="theadRows">                        
+                        </tr>
+                    </thead>
                     <tbody>
+
+                    </tbody>
+                    <%--<tbody>
                         <tr>
                             <td width="120" rowspan="2" align="center" bgcolor="#F0F0F0" class="tab_title">Part Number</td>
                             <td rowspan="2" align="center" bgcolor="#F0F0F0" class="tab_title">Package</td>
@@ -52,7 +62,7 @@
                     <tbody id="tbody1">
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#" id="AP9120GH" class="gomerge tooltipstered" onmouseover="over_Merge(1)">AP9120GH</a>
+                                <a href="#" id="AP9120GH" class="gomerge tooltipstered" >AP9120GH</a>
                             </td>
                             <td align="center" class="t4">TO-252</td>
                             <td align="center" class="t4">Single</td>
@@ -69,7 +79,7 @@
                         </tr>
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#" id="AP15TP1R0M" class="gomerge tooltipstered" onmouseover="over_Merge(2)">AP15TP1R0M</a>
+                                <a href="#" id="AP15TP1R0M" class="gomerge tooltipstered" >AP15TP1R0M</a>
                             </td>
                             <td align="center" class="t4">SO-8</td>
                             <td align="center" class="t4">Single</td>
@@ -86,7 +96,7 @@
                         </tr>
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#" id="AP15TP1R0Y" class="gomerge tooltipstered" onmouseover="over_Merge(3)">AP15TP1R0Y</a>
+                                <a href="#" id="AP15TP1R0Y" class="gomerge tooltipstered" >AP15TP1R0Y</a>
                             </td>
                             <td align="center" class="t4">SOT-26</td>
                             <td align="center" class="t4">Single</td>
@@ -103,7 +113,7 @@
                         </tr>
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#" id="AP15TP1R0YT" class="gomerge tooltipstered" onmouseover="over_Merge(4)">AP15TP1R0YT</a>
+                                <a href="#" id="AP15TP1R0YT" class="gomerge tooltipstered" >AP15TP1R0YT</a>
                             </td>
                             <td align="center" class="t4">PMPAK-3x3</td>
                             <td align="center" class="t4">Single</td>
@@ -120,7 +130,7 @@
                         </tr>
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#" id="AP15P15GH" class="gomerge tooltipstered" onmouseover="over_Merge(5)">AP15P15GH</a>
+                                <a href="#" id="AP15P15GH" class="gomerge tooltipstered" >AP15P15GH</a>
                             </td>
                             <td align="center" class="t4">TO-252</td>
                             <td align="center" class="t4">Single</td>
@@ -137,7 +147,7 @@
                         </tr>
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#" id="AP15P15GM" class="gomerge tooltipstered" onmouseover="over_Merge(6)">AP15P15GM</a>
+                                <a href="#" id="AP15P15GM" class="gomerge tooltipstered" >AP15P15GM</a>
                             </td>
                             <td align="center" class="t4">SO-8</td>
                             <td align="center" class="t4">Single</td>
@@ -154,7 +164,7 @@
                         </tr>
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#" id="AP4579JY" class="gomerge tooltipstered" onmouseover="over_Merge(7)">AP4579JY</a>
+                                <a href="#" id="AP4579JY" class="gomerge tooltipstered" >AP4579JY</a>
                             </td>
                             <td align="center" class="t4">2928-8</td>
                             <td align="center" class="t4">Complementary</td>
@@ -171,7 +181,7 @@
                         </tr>
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#" id="AP5527DT1" class="goDataSheet tooltipstered" onmouseover="over_Merge(8)">AP5527DT1</a>
+                                <a href="#" id="AP5527DT1" class="goDataSheet tooltipstered" >AP5527DT1</a>
                             </td>
                             <td align="center" class="t4">DFN 5x4.5</td>
                             <td align="center" class="t4">Complementary Common-Drain</td>
@@ -188,7 +198,7 @@
                         </tr>
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#" id="AP9593GS" class="gomerge tooltipstered" onmouseover="over_Merge(9)">AP9593GS</a>
+                                <a href="#" id="AP9593GS" class="gomerge tooltipstered" >AP9593GS</a>
                             </td>
                             <td align="center" class="t4">TO-263</td>
                             <td align="center" class="t4">Single</td>
@@ -205,7 +215,7 @@
                         </tr>
                         <tr>
                             <td align="left" class="t11">
-                                <a href="#0" id="AP10P135M" class="gomerge tooltipstered" onmouseover="over_Merge(10)">AP10P135M</a>
+                                <a href="#0" id="AP10P135M" class="gomerge tooltipstered" >AP10P135M</a>
                             </td>
                             <td align="center" class="t4">SO-8</td>
                             <td align="center" class="t4">Single</td>
@@ -220,31 +230,50 @@
                             <td align="center" class="t4">1525/2440</td>
                             <td align="center" class="t4">29/46</td>
                         </tr>
-                    </tbody>
+                    </tbody>--%>
                 </table>
             </div>
         </div>
     </main>
-
-
     <script>
-        let prodPackageOption = '<option></<option>';
-        let prodPackage = prodData['PowerMOSFETs_option']['Package'];
-        for (let i = 0; i < prodPackage.length; i++) {
-            $('#prodPackage').append('<option value="' + i + '">' + prodPackage[i] + '</<option>');
+        var data = <%=dataString%>;
+
+        var optList = [];
+
+        // 設定每個下拉選單請選擇
+        for (let item of document.getElementsByName('options')) {
+            item.innerHTML += '<option value="0">請選擇</option>';
+            optList.push(item);
         }
-        let prodConfiguration = prodData['PowerMOSFETs_option']['Configuration'];
-        for (let i = 0; i < prodConfiguration.length; i++) {
-            $('#prodConfiguration').append('<option value="' + i + '">' + prodConfiguration[i] + '</<option>');
+
+        function UpdateOptions(data, opt) {
+            opt.innerHTML = '<option value="0">請選擇</option>';
+            for (let item in data) { 
+                opt.innerHTML += `<option value="${item}">${item}</option>`;
+            }
         }
-        let prodType = prodData['PowerMOSFETs_option']['Type'];
-        for (let i = 0; i < prodType.length; i++) {
-            $('#prodType').append('<option value="' + i + '">' + prodType[i] + '</<option>');
+
+        UpdateOptions(data, optList[0]);
+
+
+        function OptionSelectChanged(index) {
+            if (optList[index].value === '0') {
+                return;
+            }
+
+            let subData = eval(`data.${optList[index].value}`);
+
+            //檢查是不是最後一個
+            if (index + 1 >= optList.length) {
+                return;
+            }
+
+            UpdateOptions(subData, optList[index+1]);
         }
-        let prodVDS = prodData['PowerMOSFETs_option']['VDS'];
-        for (let i = 0; i < prodVDS.length; i++) {
-            $('#prodVDS').append('<option value="' + i + '">' + prodVDS[i] + '</<option>');
-        }
+
     </script>
+
+    <asp:HiddenField ID="_DataString" runat="server" />
+
 </asp:Content>
 

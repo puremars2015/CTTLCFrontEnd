@@ -10,6 +10,8 @@ namespace CTTLCFrontEnd
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.MapPageRoute("Home", "Home", "~/HomePage.aspx");
+
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
