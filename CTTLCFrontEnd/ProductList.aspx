@@ -247,6 +247,9 @@
         }
 
         function UpdateOptions(data, opt) {
+            if (opt == undefined) {
+                return;ㄉ
+            }
             opt.innerHTML = '<option value="0">請選擇</option>';
             for (let item in data) { 
                 opt.innerHTML += `<option value="${item}">${item}</option>`;
@@ -258,17 +261,57 @@
 
         function OptionSelectChanged(index) {
             if (optList[index].value === '0') {
+                UpdateOptions([], optList[index + 1]);
                 return;
             }
 
-            let subData = eval(`data.${optList[index].value}`);
+            let selectedList = 'data';
 
-            //檢查是不是最後一個
+            for (let i = 0; i <= index; i++) {
+                selectedList += `.${optList[i].value}`;
+            }
+
+            let subData = eval(selectedList);
+
+            //檢查是不是最後一個,如果是最後一個就刷新datatable
             if (index + 1 >= optList.length) {
+                RenderTable(subData);
                 return;
             }
 
             UpdateOptions(subData, optList[index+1]);
+        }
+
+        function RenderTable(data) {
+
+            // 提取所有屬性名稱
+            var allKeys = [];
+            data.forEach(function (item) {
+                Object.keys(item).forEach(function (key) {
+                    if (!allKeys.includes(key)) {
+                        allKeys.push(key);
+                    }
+                });
+            });
+
+            // 動態生成列頭
+            var headerRow = document.getElementById('headerRow');
+            allKeys.forEach(function (key) {
+                var cell = document.createElement('th');
+                cell.textContent = key;
+                headerRow.appendChild(cell);
+            });
+
+            // 填充資料
+            data.forEach(function (item) {
+                var row = document.createElement('tr');
+                allKeys.forEach(function (key) {
+                    var cell = document.createElement('td');
+                    cell.textContent = item[key] || '';
+                    row.appendChild(cell);
+                });
+                document.querySelector('tbody').appendChild(row);
+            });
         }
 
     </script>
